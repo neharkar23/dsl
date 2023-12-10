@@ -1,0 +1,95 @@
+#include<iostream>
+#include<string.h>
+#include<exception>
+using namespace std;
+class publication
+{
+	public:
+		string title;
+		float price;
+		void getdata()
+		{
+			cout<<"Enter the name of book : ";
+			cin>>title;
+			cout<<"Enter the cost of book : ";
+			cin>>price;
+		}
+		void showdata()
+		{
+			cout<<"Name of book is : "<<title<<endl;
+			cout<<"Cost of book is : "<<price<<endl;
+		}
+};
+class book:public publication
+{
+    public:
+		int count;
+		void getdata()
+		{
+			cout<<"Enter the number of pages in the book : ";
+			cin>>count;
+		}
+		void showdata()
+		{
+			try
+			{
+				if(count<=0)
+				{
+					throw count;
+				}
+				else
+				{
+					cout<<"Pages of book are : "<<count<<endl;
+				}
+			}
+			catch(int i)
+			{
+				cout<<"Enter page number greater than 0 \n";
+				count=0;
+			}
+		}
+};
+class tape:public publication
+{
+    public:
+		float min;
+		void getdata()
+		{
+			cout<<"Enter the time of the audio book : ";
+			cin>>min;
+		}
+		void showdata()
+		{
+			try
+			{
+				if(min<=0)
+				{
+					throw min;
+				}
+				else
+				{
+					cout<<"Time of audio book is : "<<min<<endl;
+				}
+			}
+			catch(float i)
+			{
+				cout<<"Enter audio tape greater than 0 ";
+				min=0;
+			}
+		}
+};
+int main()
+{
+	publication p;
+	book b;
+	tape t;
+	p.getdata();
+	p.showdata();
+	b.getdata();
+	b.showdata();
+	t.getdata();
+	t.showdata();
+              return 0;
+ }
+
+ 
