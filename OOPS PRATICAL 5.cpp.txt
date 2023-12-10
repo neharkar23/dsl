@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+template<class T>
+void swapping(T &a , T &b)
+{
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+}
+void display(int *array , int size)
+{
+    for(int i = 0; i<size; i++)
+    {
+      cout << array[i] << " ";
+      cout << endl;
+    }
+}
+void selection_sort(int *array , int size)
+{
+    int i,j,min;
+    for (i=0;i<size-1;i++)
+    {
+        min=i;
+        for (j=i+1;j<size;j++)
+        {
+            if(array[j]<array[min])
+            {
+                min=j;
+            }
+            swap(array[i],array[min]);
+        }
+    }
+}
+int main()
+{
+    int n;
+    cout<<"number of element in the list : \n";
+    cin>>n;
+    int arr[n];
+    cout<<"enter the elements : \n";
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<"element before sorting :"<<endl;
+    display(arr,n);
+    selection_sort(arr,n);
+    cout<<"element after sorting :"<<endl;
+    display(arr,n);
+    return 0;
+}
+
+
+
+
+
+ 
+
+
